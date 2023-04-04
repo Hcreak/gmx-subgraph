@@ -26,7 +26,7 @@ import {
 } from '../generated/ChainlinkAggregatorBTC/ChainlinkAggregator'
 
 import {
-  WBNB,
+  WMATIC,
   ETH,
   BTC,
   getDayId,
@@ -39,17 +39,17 @@ import {
 let tokenSymbols = new Array<string>(6)
 tokenSymbols[0] = 'BTC'
 tokenSymbols[1] = 'ETH'
-tokenSymbols[2] = 'BNB'
+tokenSymbols[2] = 'MATIC'
 tokenSymbols[3] = 'BUSD'
 tokenSymbols[4] = 'USDC'
 tokenSymbols[5] = 'USDT'
 
 let a = 1
 let BASIS_POINTS_DIVISOR = BigInt.fromI32(10000)
-let VAULT = "0xc73A8DcAc88498FD4b4B1b2AaA37b0a2614Ff67B"
+let VAULT = "0x6868a8794476eF8de9a6c386dB3cfc53c7B726B1"
 
 let ZERO = BigInt.fromI32(0)
-let USDG = "0x85E76cbf4893c1fbcB34dCF1239A91CE2A4CF5a7"
+let USDG = "0xd80e826aB11327c7990129055cF6A2F5424d7393"
 let USDG_ADDRESS = Address.fromString(USDG)
 
 function _getSwapFeeBasisPoints(tokenA: string, tokenB: string, timestamp: BigInt): BigInt {
@@ -84,8 +84,8 @@ export function handleAnswerUpdatedETH(event: AnswerUpdatedEvent): void {
   _storeChainlinkPrice(ETH, event.params.current, event.block.timestamp)
 }
 
-export function handleAnswerUpdatedBNB(event: AnswerUpdatedEvent): void {
-  _storeChainlinkPrice(WBNB, event.params.current, event.block.timestamp)
+export function handleAnswerUpdatedMATIC(event: AnswerUpdatedEvent): void {
+  _storeChainlinkPrice(WMATIC, event.params.current, event.block.timestamp)
 }
 
 export function handleIncreasePosition(event: IncreasePosition): void {
@@ -155,14 +155,14 @@ function _getOrCreatePoolStat(id: string, period: string): PoolStat {
     entity = new PoolStat(id)
     entity.BTC_amount = ZERO
     entity.ETH_amount = ZERO
-    entity.BNB_amount = ZERO
-    entity.BUSD_amount = ZERO
+    entity.MATIC_amount = ZERO
+    // entity.BUSD_amount = ZERO
     entity.USDT_amount = ZERO
     entity.USDC_amount = ZERO
     entity.BTC_usd = ZERO
     entity.ETH_usd = ZERO
-    entity.BNB_usd = ZERO
-    entity.BUSD_usd = ZERO
+    entity.MATIC_usd = ZERO
+    // entity.BUSD_usd = ZERO
     entity.USDT_usd = ZERO
     entity.USDC_usd = ZERO
     entity.usdgSupply = ZERO

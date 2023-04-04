@@ -1,0 +1,16 @@
+{
+  "name": "gmx-stats",
+  "license": "UNLICENSED",
+  "scripts": {
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "create": "graph create gmx-io/gmx-stats --node https://polygon.graph.findora.org/jsonrpc",
+    "deploy": "graph deploy gmx-io/gmx-stats --debug --ipfs https://polygon.graph.findora.org --node https://polygon.graph.findora.org/jsonrpc"
+  },
+  "dependencies": {
+    "@graphprotocol/graph-cli": "0.21.1",
+    "@graphprotocol/graph-ts": "0.20.0",
+    "ethers": "^5.4.6",
+    "moment": "^2.29.1"
+  }
+}

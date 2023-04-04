@@ -4,9 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "deploy-test": "graph deploy --product hosted-service gdev8317/gambit --deploy-key $(cat .access_token)",
-    "deploy-sandbox": "graph deploy --product hosted-service gdev8317/gmx2 --deploy-key $(cat .access_token)",
-    "deploy-prod": "graph deploy --product hosted-service gmx-io/gmx-bsc-stats"
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "create": "graph create gmx-io/gambit --node https://polygon.graph.findora.org/jsonrpc",
+    "deploy": "graph deploy gmx-io/gambit --debug --ipfs https://polygon.graph.findora.org --node https://polygon.graph.findora.org/jsonrpc"
   },
   "author": "",
   "license": "ISC"

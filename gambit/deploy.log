@@ -1,0 +1,15 @@
+
+> gambit@1.0.0 deploy
+> graph deploy gmx-io/gambit --debug --ipfs https://polygon.graph.findora.org --node https://polygon.graph.findora.org/jsonrpc
+
+[?25l[?25l[36m?[39m [1mVersion Label (e.g. v0.0.1)[22m [2m‣[22m [46m[30m[30m [39m[30m[39m[49m[1D[2K[1G[32m✔[39m [1mVersion Label (e.g. v0.0.1)[22m [2m·[22m 
+
+[32mBuild completed: QmWaWePYERAzspJUkUSaTFNWahgTx7aYr2L5W9NHLQwf6K[39m
+
+[32mDeployed to https://polygon.graph.findora.org:8000/subgraphs/name/gmx-io/gambit/graphql[39m
+[0m[0m
+[0mSubgraph endpoints:[0m
+[0mQueries (HTTP):     https://polygon.graph.findora.org:8000/subgraphs/name/gmx-io/gambit[0m
+[0mSubscriptions (WS): https://polygon.graph.findora.org:8001/subgraphs/name/gmx-io/gambit[0m
+
+[?25h[?25h

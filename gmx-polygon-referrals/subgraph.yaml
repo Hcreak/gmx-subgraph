@@ -1,0 +1,182 @@
+specVersion: 0.0.2
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: OrderBook
+    network: polygon
+    source:
+      address: "0x803cb408DA8cD153ED81caF6b573a7847Fc7b99d"
+      abi: OrderBook
+      startBlock: 33662853
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - ExecuteDecreaseOrder
+      abis:
+        - name: OrderBook
+          file: ./abis/OrderBook.json
+      eventHandlers:
+        - event: ExecuteDecreaseOrder(indexed address,uint256,address,uint256,address,uint256,bool,uint256,bool,uint256,uint256)
+          handler: handleExecuteDecreaseOrder
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: BatchSender
+    network: polygon
+    source:
+      address: "0x72c19e0C969F597A0E7A67799752325FD6cC77Cd"
+      abi: BatchSender
+      startBlock: 33786044
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - BatchSend
+      abis:
+        - name: BatchSender
+          file: ./abis/BatchSender.json
+      eventHandlers:
+        - event: BatchSend(indexed uint256,indexed address,address[],uint256[])
+          handler: handleBatchSend
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: PositionManager
+    network: polygon
+    source:
+      address: "0x2F691ae23761d03ce0D0eE3ffEf7a6C00a140B76"
+      abi: PositionManager
+      startBlock: 33787012
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - IncreasePositionReferral
+        - DecreasePositionReferral
+      abis:
+        - name: PositionManager
+          file: ./abis/PositionManager.json
+      eventHandlers:
+        - event: IncreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleIncreasePositionReferral
+        - event: DecreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleDecreasePositionReferral
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: PositionManager_v2
+    network: polygon
+    source:
+      address: "0x2F691ae23761d03ce0D0eE3ffEf7a6C00a140B76"
+      abi: PositionManager
+      startBlock: 33787012
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - IncreasePositionReferral
+        - DecreasePositionReferral
+      abis:
+        - name: PositionManager
+          file: ./abis/PositionManager.json
+      eventHandlers:
+        - event: IncreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleIncreasePositionReferral
+        - event: DecreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleDecreasePositionReferral
+      file: ./src/mapping.ts
+
+
+  - kind: ethereum/contract
+    name: PositionRouter
+    network: polygon
+    source:
+      address: "0x78008DC38a29b665cCE0b861B45b5116Bc307582"
+      abi: PositionRouter
+      startBlock: 33664749
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - IncreasePositionReferral
+        - DecreasePositionReferral
+      abis:
+        - name: PositionRouter
+          file: ./abis/PositionRouter.json
+      eventHandlers:
+        - event: IncreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleIncreasePositionReferral
+        - event: DecreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleDecreasePositionReferral
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: PositionRouter_v2
+    network: polygon
+    source:
+      address: "0x78008DC38a29b665cCE0b861B45b5116Bc307582"
+      abi: PositionRouter
+      startBlock: 33664749
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - IncreasePositionReferral
+        - DecreasePositionReferral
+      abis:
+        - name: PositionRouter
+          file: ./abis/PositionRouter.json
+      eventHandlers:
+        - event: IncreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleIncreasePositionReferral
+        - event: DecreasePositionReferral(address,uint256,uint256,bytes32,address)
+          handler: handleDecreasePositionReferral
+      file: ./src/mapping.ts
+
+  - kind: ethereum/contract
+    name: ReferralStorage
+    network: polygon
+    source:
+      address: "0x119E9359469c6A1585cE33f45a3660f4B7e7b7d3"
+      abi: ReferralStorage
+      startBlock: 33663894
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - GovSetCodeOwner
+        - RegisterCode
+        - SetCodeOwner
+        - SetHandler
+        - SetReferrerDiscountShare
+        - SetReferrerTier
+        - SetTier
+        - SetTraderReferralCode
+      abis:
+        - name: ReferralStorage
+          file: ./abis/ReferralStorage.json
+      eventHandlers:
+        - event: GovSetCodeOwner(bytes32,address)
+          handler: handleGovSetCodeOwner
+        - event: RegisterCode(address,bytes32)
+          handler: handleRegisterCode
+        - event: SetCodeOwner(address,address,bytes32)
+          handler: handleSetCodeOwner
+        - event: SetReferrerDiscountShare(address,uint256)
+          handler: handleSetReferrerDiscountShare
+        - event: SetReferrerTier(address,uint256)
+          handler: handleSetReferrerTier
+        - event: SetTier(uint256,uint256,uint256)
+          handler: handleSetTier
+        - event: SetTraderReferralCode(address,bytes32)
+          handler: handleSetTraderReferralCode
+      file: ./src/mapping.ts

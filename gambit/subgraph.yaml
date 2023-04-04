@@ -5,11 +5,11 @@ dataSources:
 
   - kind: ethereum/contract
     name: ChainlinkAggregatorBTC
-    network: bsc
+    network: polygon
     source:
-      address: "0x178bA789e24A1d51E9Ea3Cb1Db3B52917963D71D"
+      address: "0x007A22900a3B98143368Bd5906f8E17e9867581b"
       abi: ChainlinkAggregator
-      startBlock: 7346939
+      startBlock: 16595538
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -25,11 +25,11 @@ dataSources:
       file: ./src/mapping.ts
   - kind: ethereum/contract
     name: ChainlinkAggregatorETH
-    network: bsc
+    network: polygon
     source:
-      address: "0xfC3069296a691250fFDf21fe51340fdD415a76ed"
+      address: "0x0715A7794a1dc8e42615F059dD6e406A6594651A"
       abi: ChainlinkAggregator
-      startBlock: 7384787
+      startBlock: 3783684
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -44,12 +44,12 @@ dataSources:
           handler: handleAnswerUpdatedETH
       file: ./src/mapping.ts
   - kind: ethereum/contract
-    name: ChainlinkAggregatorBNB
-    network: bsc
+    name: ChainlinkAggregatorMATIC
+    network: polygon
     source:
-      address: "0x137924D7C36816E0DcAF016eB617Cc2C92C05782"
+      address: "0xd0D5e3DB44DE05E9F294BB0a3bEEaF030DE24Ada"
       abi: ChainlinkAggregator
-      startBlock: 7347701
+      startBlock: 3782914
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -61,16 +61,16 @@ dataSources:
           file: ./abis/ChainlinkAggregator.json
       eventHandlers:
         - event: AnswerUpdated(indexed int256,indexed uint256,uint256)
-          handler: handleAnswerUpdatedBNB
+          handler: handleAnswerUpdatedMATIC
       file: ./src/mapping.ts
 
   - kind: ethereum/contract
     name: Vault
-    network: bsc
+    network: polygon
     source:
-      address: "0xc73A8DcAc88498FD4b4B1b2AaA37b0a2614Ff67B"
+      address: "0x6868a8794476eF8de9a6c386dB3cfc53c7B726B1"
       abi: Vault
-      startBlock: 6900000
+      startBlock: 33662035
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
